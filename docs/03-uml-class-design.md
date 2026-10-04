@@ -1,6 +1,6 @@
 # ERP Migration Router — UML Class Design
 
-> **Document 3 of 4** · [Architecture](01-architecture.md) · [Database schema](02-database-schema.md) · [UML class design](03-uml-class-design.md) · [Development plan](04-development-plan.md)
+> **Document 3 of 4** · [Architecture](01-architecture.md) · [Database schema](02-database-schema.md) · [UML class design](03-uml-class-design.md) ·
 >
 > Java 25 · Spring Boot 4 · Root package `com.bardaghji.erpmigration`
 
@@ -190,7 +190,7 @@ container:
 ```java
 @Component
 @ConditionalOnProperty(name = "adapter.erp-system", havingValue = "S4")
-class S4SourceAdapter implements ErpSourceAdapter { … }
+class S4SourceAdapter implements ErpSourceAdapter {  }
 ```
 
 `adapter-ecc` runs with `adapter.erp-system=ECC`, `adapter-s4` with `S4`. The orchestration code

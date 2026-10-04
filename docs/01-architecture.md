@@ -1,6 +1,6 @@
 # ERP Migration Router — Architecture
 
-> **Document 1 of 4** · [Architecture](01-architecture.md) · [Database schema](02-database-schema.md) · [UML class design](03-uml-class-design.md) · [Development plan](04-development-plan.md)
+> **Document 1 of 4** · [Architecture](01-architecture.md) · [Database schema](02-database-schema.md) · [UML class design](03-uml-class-design.md) ·
 >
 > Status: **Design — v1** · Stack: Java 25 / Spring Boot 4, nginx, Keycloak, MySQL 8, Docker Compose
 

@@ -1,7 +1,5 @@
 # ERP Migration Router
 
-> 🚧 Work in progress — currently at phase P0 (project skeleton). See [`docs/04-development-plan.md`](docs/04-development-plan.md).
-
 Demo integration platform showing how to migrate warehouses from **SAP ECC** to **SAP S/4HANA** one at a time
 (strangler fig pattern): an nginx gateway routes each warehouse to the old or new ERP, mirrors traffic to S/4HANA
 in shadow mode, and a reconciliation service measures whether both systems return the same business data before
@@ -32,4 +30,3 @@ Requires JDK 25 and Maven 3.9+ (or the Maven Wrapper).
 - [Architecture](docs/01-architecture.md)
 - [Database schema](docs/02-database-schema.md)
 - [UML class design](docs/03-uml-class-design.md)
-- [Development plan](docs/04-development-plan.md)

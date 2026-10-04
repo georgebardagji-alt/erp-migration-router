@@ -1,6 +1,6 @@
 # ERP Migration Router — Database Schema
 
-> **Document 2 of 4** · [Architecture](01-architecture.md) · [Database schema](02-database-schema.md) · [UML class design](03-uml-class-design.md) · [Development plan](04-development-plan.md)
+> **Document 2 of 4** · [Architecture](01-architecture.md) · [Database schema](02-database-schema.md) · [UML class design](03-uml-class-design.md) ·
 >
 > Engine: **MySQL 8.0.16+** (CHECK constraints enforced) · Migrations: **Flyway**, one history table per schema
 
