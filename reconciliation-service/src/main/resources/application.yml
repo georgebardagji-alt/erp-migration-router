@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: reconciliation-service
+
+server:
+  port: 8080   # every service listens on 8080 inside its container
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health   # prometheus is added in P11

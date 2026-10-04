@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Inheritance chain: spring-boot-starter-parent -> this root POM -> each module.
+         The Spring Boot parent manages the versions of every starter, plugin and test library. -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>4.1.1</version>
+        <relativePath/> <!-- resolve from Maven Central, not from a parent folder -->
+    </parent>
+
+    <groupId>com.bardaghji</groupId>
+    <artifactId>erp-migration-router</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging> <!-- aggregator: contains modules, no code -->
+
+    <name>ERP Migration Router</name>
+    <description>Strangler-fig migration of warehouses from SAP ECC to SAP S/4HANA behind an nginx gateway</description>
+
+    <properties>
+        <!-- The Spring Boot parent turns this into maven.compiler.release=25 and sets UTF-8 encoding -->
+        <java.version>25</java.version>
+    </properties>
+
+    <modules>
+        <module>canonical-model</module>
+        <module>mock-ecc</module>
+        <module>mock-s4</module>
+        <module>order-adapter</module>
+        <module>auth-validator</module>
+        <module>reconciliation-service</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Shared library: its version is declared once here, modules depend on it without a version.
+                 Resilience4j (P7) and ArchUnit (P13) are added here in their own phases. -->
+            <dependency>
+                <groupId>com.bardaghji</groupId>
+                <artifactId>canonical-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
