@@ -93,4 +93,18 @@ public class CanonicalSerializerTest {
     public void sha256hex_matchesKnownVector(){
         assertThat(canonicalSerializer.sha256Hex("")).isEqualTo("e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
     }
+
+    //7 Test toJson function if it returns exactly the expected json string
+    @Test
+    void toJson_producesExactCanonicalFormat() {
+        CanonicalOrder order = orderSample("100.00", List.of(itemSample(20, "3"), itemSample(10, "2.000")));
+
+        String expected = """
+            {"currency":"EUR","customerId":"CUST1",\
+            "items":[{"lineNumber":10,"quantity":"2","sku":"0101010","unit":"EA"},\
+            {"lineNumber":20,"quantity":"3","sku":"0101010","unit":"EA"}],\
+            "orderDate":"2026-09-20","orderId":"1020304","status":"OPEN","totalAmount":"100"}""";
+
+        assertThat(canonicalSerializer.toJson(order)).isEqualTo(expected);
+    }
 }

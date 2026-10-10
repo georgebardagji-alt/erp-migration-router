@@ -15,6 +15,7 @@ import java.util.HexFormat;
 public class CanonicalSerializer {
     private final ObjectMapper objectMapper = JsonMapper.builder()
             .enable(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY)
+            .disable(MapperFeature.SORT_CREATOR_PROPERTIES_FIRST)
             .enable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS)
             .addModule(new SimpleModule("canonical-decimal").addSerializer(BigDecimal.class, new PlainBigDecimalSerializer()))
             .build();
