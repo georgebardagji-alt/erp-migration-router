@@ -27,6 +27,11 @@ public class CanonicalSerializer {
         return objectMapper.readValue(jsonOrder, CanonicalOrder.class);
     }
 
-    public String sha256Hex(String order) throws NoSuchAlgorithmException {
-        return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(order.getBytes(StandardCharsets.UTF_8)));    }
+    public String sha256Hex(String order) {
+        try {
+            return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(order.getBytes(StandardCharsets.UTF_8)));
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

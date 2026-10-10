@@ -30,7 +30,7 @@ public class CanonicalSerializerTest {
     }
 
     @Test
-    public void SameOrder_ProducesSameOrderHash() throws NoSuchAlgorithmException {
+    public void sameOrder_ProducesSameOrderHash() throws NoSuchAlgorithmException {
         CanonicalOrder firstOrder = orderSample("10", List.of(itemSample(10, "3")));
         CanonicalOrder secondOrder = orderSample("10", List.of(itemSample(10, "3")));
 
@@ -86,5 +86,11 @@ public class CanonicalSerializerTest {
 
         assertThat(firstOrderJson).isNotEqualTo(secondOrderJson);
         assertThat(canonicalSerializer.sha256Hex(firstOrderJson)).isNotEqualTo(canonicalSerializer.sha256Hex(secondOrderJson));
+    }
+
+    //6 SHA256Hex matches known vector
+    @Test
+    public void sha256hex_matchesKnownVector(){
+        assertThat(canonicalSerializer.sha256Hex("")).isEqualTo("e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
     }
 }
